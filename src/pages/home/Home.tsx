@@ -38,6 +38,7 @@ const Home = () => {
 
             <Center>
               <Button
+                classNames={{ root: "bg-blue-400" }}
                 size="md"
                 rightIcon={<ArrowNarrowRight />}
                 onClick={() => navigate("/form")}
