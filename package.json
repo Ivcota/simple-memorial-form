@@ -19,6 +19,7 @@
     "react-router-dom": "6",
     "styled-components": "^5.3.5",
     "tabler-icons-react": "^1.42.0",
+    "zod": "^3.14.3",
     "zustand": "^3.7.1"
   },
   "devDependencies": {

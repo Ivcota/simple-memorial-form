@@ -1,4 +1,4 @@
-import { useForm } from "@mantine/form";
+import { useForm, zodResolver } from "@mantine/form";
 import { useNotifications } from "@mantine/notifications";
 import React from "react";
 import { useMutation } from "react-query";
@@ -22,6 +22,7 @@ import {
 import "./form-page.css";
 import { useNavigate } from "react-router-dom";
 import { IForm, Wrapper, inputStyles } from "./Wrapper";
+import { z } from "zod";
 
 const FormPage = () => {
   const navigate = useNavigate();
@@ -44,6 +45,16 @@ const FormPage = () => {
 
   const notifications = useNotifications();
 
+  const schema = z.object({
+    name: z.string().nonempty({ message: "Your name is required" }),
+    email: z.string().email({ message: "Please enter a valid email" }),
+    congregation: z
+      .string()
+      .nonempty({ message: "Your congregation is required" }),
+    phone: z.string().max(11, { message: "This number is too long" }),
+    privilege: z.string().nonempty({ message: "Please select one" }),
+  });
+
   const form = useForm({
     initialValues: {
       name: "",
@@ -52,9 +63,7 @@ const FormPage = () => {
       congregation: "",
       privilege: "",
     },
-    validate: {
-      phone: (value) => (value.length > 11 ? "Number is too long" : null),
-    },
+    schema: zodResolver(schema),
   });
 
   return (
@@ -103,7 +112,6 @@ const FormPage = () => {
               rightSection={<User />}
               size="md"
               autoComplete="off"
-              required
               {...form.getInputProps("name")}
             />
 
@@ -114,13 +122,11 @@ const FormPage = () => {
               size="md"
               autoComplete="off"
               rightSection={<Mail />}
-              required
               {...form.getInputProps("email")}
             />
 
             <TextInput
               styles={inputStyles}
-              required
               label="Phone"
               type="number"
               size="md"
@@ -135,7 +141,6 @@ const FormPage = () => {
               size="md"
               autoComplete="off"
               rightSection={<Home />}
-              required
               {...form.getInputProps("congregation")}
             />
 
