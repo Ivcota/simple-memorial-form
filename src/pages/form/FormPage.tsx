@@ -150,7 +150,6 @@ const FormPage = () => {
 
             <Select
               styles={inputStyles}
-              required
               label="Privilage"
               placeholder="Select"
               size="md"
