@@ -1,6 +1,6 @@
 import React from "react";
 import { MantineProvider, Paper } from "@mantine/core";
-import { MemoryRouter as BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FormPage, Home, ThankYou } from "./pages";
 import { Navbar } from "./components/index";
 import { themeStore } from "./libs/store";
