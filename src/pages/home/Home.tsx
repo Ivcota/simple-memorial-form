@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Button,
   Card,
@@ -9,8 +10,6 @@ import {
   Title,
 } from "@mantine/core";
 import { ArrowNarrowRight } from "tabler-icons-react";
-import React from "react";
-
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -34,7 +33,7 @@ const Home = () => {
             </Center>
 
             <Center>
-              <Text>Attendant application made simple...</Text>
+              <Text>Attendant application form made simple...</Text>
             </Center>
 
             <Center>
