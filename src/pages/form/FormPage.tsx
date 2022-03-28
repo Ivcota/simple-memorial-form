@@ -46,13 +46,17 @@ const FormPage = () => {
   const notifications = useNotifications();
 
   const schema = z.object({
-    name: z.string().nonempty({ message: "Your name is required" }),
-    email: z.string().email({ message: "Please enter a valid email" }),
+    name: z.string().nonempty({ message: "Your name is required." }),
+    email: z.string().email({ message: "Please enter a valid email." }),
     congregation: z
       .string()
-      .nonempty({ message: "Your congregation is required" }),
-    phone: z.string().max(11, { message: "This number is too long" }),
-    privilege: z.string().nonempty({ message: "Please select one" }),
+      .nonempty({ message: "Your congregation is required." }),
+    phone: z
+      .string()
+      .min(1, { message: "Your phone number is required." })
+      .max(11, { message: "This number is too long." }),
+
+    privilege: z.string().nonempty({ message: "Please select one." }),
   });
 
   const form = useForm({
