@@ -29,11 +29,11 @@ const Home = () => {
         <Card>
           <Group position={"center"} direction={"column"}>
             <Center>
-              <Title>AZ Attendant</Title>
+              <Title>Memorial Attendants</Title>
             </Center>
 
             <Center>
-              <Text>Attendant application form made simple...</Text>
+              <Text>Please complete the attendant registration form.</Text>
             </Center>
 
             <Center>
@@ -43,7 +43,7 @@ const Home = () => {
                 rightIcon={<ArrowNarrowRight />}
                 onClick={() => navigate("/form")}
               >
-                Get Started
+                Register
               </Button>
             </Center>
           </Group>
