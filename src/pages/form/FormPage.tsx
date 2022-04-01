@@ -141,12 +141,39 @@ const FormPage = () => {
               {...form.getInputProps("phone")}
             />
 
-            <TextInput
+            <Select
               styles={inputStyles}
               label="Congregation"
               size="md"
               autoComplete="off"
               rightSection={<Home />}
+              placeholder="Select"
+              data={[
+                {
+                  label: "North Casa Grande",
+                  value: "north_casa_grande",
+                },
+                {
+                  label: "West Casa Grande",
+                  value: "west_casa_grande",
+                },
+                {
+                  label: "East Casa Grande",
+                  value: "east_casa_grande",
+                },
+                {
+                  label: "Coolidge",
+                  value: "coolidge",
+                },
+                {
+                  label: "Maricopa",
+                  value: "maricopa",
+                },
+                {
+                  label: "Eloy",
+                  value: "eloy",
+                },
+              ]}
               {...form.getInputProps("congregation")}
             />
             <TextInput
