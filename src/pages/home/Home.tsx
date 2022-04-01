@@ -32,9 +32,7 @@ const Home = () => {
             </Center>
 
             <Center>
-              <Text>
-                Please complete the attendant <br /> registration form.
-              </Text>
+              <Text>Please complete the attendant registration form.</Text>
             </Center>
 
             <Center>
