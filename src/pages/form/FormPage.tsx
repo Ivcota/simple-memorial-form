@@ -1,7 +1,17 @@
+import {
+  Button,
+  Container,
+  Group,
+  Select,
+  Text,
+  TextInput,
+  Title,
+} from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
 import { useNotifications } from "@mantine/notifications";
 import React from "react";
 import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
 import {
   ArrowNarrowRight,
   Check,
@@ -10,28 +20,33 @@ import {
   Phone,
   User,
 } from "tabler-icons-react";
-import {
-  Button,
-  Container,
-  Group,
-  Select,
-  TextInput,
-  Title,
-  Text,
-} from "@mantine/core";
 import "./form-page.css";
-import { useNavigate } from "react-router-dom";
-import { IForm, Wrapper, inputStyles } from "./Wrapper";
-import { z } from "zod";
+import { formSchema, IForm, inputStyles } from "./Wrapper";
 
 const FormPage = () => {
   const navigate = useNavigate();
-  const mutation = useMutation(
-    async ({ name, email, congregation, phone, privilege }: IForm) => {
-      const formData = { name, email, congregation, phone, privilege };
+  const notifications = useNotifications();
+
+  const formMutation = useMutation(
+    async ({
+      name,
+      email,
+      congregation,
+      phone,
+      privilege,
+      referred,
+    }: IForm) => {
+      const formData = {
+        name,
+        email,
+        congregation,
+        phone,
+        privilege,
+        referred,
+      };
 
       const res = await fetch(
-        "https://hooks.zapier.com/hooks/catch/4153138/b8beywe/",
+        "https://hooks.zapier.com/hooks/catch/7732174/b8i1icf/",
         {
           method: "POST",
           body: JSON.stringify(formData),
@@ -43,22 +58,6 @@ const FormPage = () => {
     }
   );
 
-  const notifications = useNotifications();
-
-  const schema = z.object({
-    name: z.string().nonempty({ message: "Your name is required." }),
-    email: z.string().email({ message: "Please enter a valid email." }),
-    congregation: z
-      .string()
-      .nonempty({ message: "Your congregation is required." }),
-    phone: z
-      .string()
-      .min(1, { message: "Your phone number is required." })
-      .max(11, { message: "This number is too long." }),
-
-    privilege: z.string().nonempty({ message: "Please select one." }),
-  });
-
   const form = useForm({
     initialValues: {
       name: "",
@@ -66,8 +65,9 @@ const FormPage = () => {
       phone: typeof Number,
       congregation: "",
       privilege: "",
+      referred: "",
     },
-    schema: zodResolver(schema),
+    schema: zodResolver(formSchema),
   });
 
   return (
@@ -83,13 +83,14 @@ const FormPage = () => {
               disallowClose: true,
             });
 
-            const res = await mutation.mutateAsync({
+            const res = await formMutation.mutateAsync({
               name: values.name,
               email: values.email,
               // @ts-ignore
               phone: values.phone,
               congregation: values.congregation,
               privilege: values.privilege,
+              referred: values.referred,
             });
 
             notifications.updateNotification(id, {
@@ -147,6 +148,14 @@ const FormPage = () => {
               autoComplete="off"
               rightSection={<Home />}
               {...form.getInputProps("congregation")}
+            />
+            <TextInput
+              styles={inputStyles}
+              label="Who Referred You?"
+              size="md"
+              autoComplete="off"
+              rightSection={<User />}
+              {...form.getInputProps("referred")}
             />
 
             <Select

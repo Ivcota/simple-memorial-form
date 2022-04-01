@@ -17,7 +17,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="full-screen full-screen--flex-column ">
+    <div className="full-screen full-screen--flex-column home home--center ">
       <Container>
         <Card>
           <Group position={"center"} direction={"column"}>
