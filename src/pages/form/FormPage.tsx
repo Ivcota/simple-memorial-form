@@ -71,14 +71,15 @@ const FormPage = () => {
   });
 
   return (
-    <Wrapper>
+    <div className="full-screen">
       <Container>
         <form
           onSubmit={form.onSubmit(async (values) => {
             const id = notifications.showNotification({
               loading: true,
-              title: "Hold on...",
-              message: "We're getting your submission...",
+              title: "Form Submitting…",
+              message:
+                "We're receiving your information right now. Please hold.",
               disallowClose: true,
             });
 
@@ -94,8 +95,8 @@ const FormPage = () => {
             notifications.updateNotification(id, {
               id,
               loading: false,
-              title: "We got it!",
-              message: "Thank you!",
+              title: "Form Submitted",
+              message: "Thank you, we got your information.",
               icon: <Check />,
             });
             navigate("/thank-you");
@@ -176,7 +177,7 @@ const FormPage = () => {
           </Group>
         </form>
       </Container>
-    </Wrapper>
+    </div>
   );
 };
 

@@ -11,20 +11,13 @@ import {
 } from "@mantine/core";
 import { ArrowNarrowRight } from "tabler-icons-react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-
-const Wrapper = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
+import "./home.css";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <Wrapper>
+    <div className="full-screen full-screen--flex-column ">
       <Container>
         <Card>
           <Group position={"center"} direction={"column"}>
@@ -50,7 +43,7 @@ const Home = () => {
         </Card>
         <Space h={80} />
       </Container>
-    </Wrapper>
+    </div>
   );
 };
 
