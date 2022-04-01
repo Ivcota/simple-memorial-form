@@ -22,11 +22,19 @@ const Home = () => {
         <Card>
           <Group position={"center"} direction={"column"}>
             <Center>
-              <Title>Memorial Attendants</Title>
+              <Title
+                style={{
+                  fontSize: "2rem",
+                }}
+              >
+                Memorial Attendants
+              </Title>
             </Center>
 
             <Center>
-              <Text>Please complete the attendant registration form.</Text>
+              <Text>
+                Please complete the attendant <br /> registration form.
+              </Text>
             </Center>
 
             <Center>
