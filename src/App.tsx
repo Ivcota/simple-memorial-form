@@ -13,7 +13,10 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <MantineProvider theme={{ colorScheme: isDark ? "dark" : "light" }}>
+      <MantineProvider
+        theme={{ colorScheme: isDark ? "dark" : "light" }}
+        withGlobalStyles
+      >
         <NotificationsProvider>
           <Paper radius={0}>
             <BrowserRouter>
