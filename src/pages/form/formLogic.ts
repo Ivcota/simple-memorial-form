@@ -1,12 +1,5 @@
-import { useMutation } from "react-query";
-import styled from "styled-components";
 import { z } from "zod";
 
-export const inputStyles = {
-  input: {
-    width: "20rem",
-  },
-};
 export interface IForm {
   name: string;
   email: string;
