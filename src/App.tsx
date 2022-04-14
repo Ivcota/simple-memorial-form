@@ -1,5 +1,5 @@
 import React from "react";
-import { MantineProvider, Paper } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FormPage, Home, ThankYou } from "./pages";
 import { Navbar } from "./components/index";
@@ -18,16 +18,14 @@ const App = () => {
         withGlobalStyles
       >
         <NotificationsProvider>
-          <Paper radius={0}>
-            <BrowserRouter>
-              <Navbar />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/form" element={<FormPage />} />
-                <Route path="/thank-you" element={<ThankYou />} />
-              </Routes>
-            </BrowserRouter>
-          </Paper>
+          <BrowserRouter>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/form" element={<FormPage />} />
+              <Route path="/thank-you" element={<ThankYou />} />
+            </Routes>
+          </BrowserRouter>
         </NotificationsProvider>
       </MantineProvider>
     </QueryClientProvider>
