@@ -1,0 +1,13 @@
+mutation UpdateBadge(
+  $where: AttendantWhereUniqueInput!
+  $data: AttendantUpdateInput!
+) {
+  updateAttendant(where: $where, data: $data) {
+    id
+    firstName
+    lastName
+    email
+    phone
+    badgeIsCheckedIn
+  }
+}

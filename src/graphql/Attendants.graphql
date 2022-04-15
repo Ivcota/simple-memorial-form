@@ -1,0 +1,20 @@
+query GetAttendants($where: AttendantWhereInput!) {
+  attendants(where: $where) {
+    id
+    firstName
+    lastName
+    email
+    phone
+    department {
+      name
+      keyman {
+        id
+        firstName
+        lastName
+        email
+        phone
+      }
+    }
+    badgeIsCheckedIn
+  }
+}
