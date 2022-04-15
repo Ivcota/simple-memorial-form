@@ -27,16 +27,14 @@ const Home = () => {
           >
             Memorial Attendants
           </Title>
-
-          <Text>Please complete the attendant registration form.</Text>
-
+          <Text> You can now check-out and check-in your badge. </Text>
           <Button
             color="blue"
             size="md"
             rightIcon={<ArrowNarrowRight />}
-            onClick={() => navigate("/form")}
+            onClick={() => navigate("/badges/check-in")}
           >
-            Register
+            Start
           </Button>
         </Group>
 
