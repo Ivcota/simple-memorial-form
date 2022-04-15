@@ -32,7 +32,7 @@ const Home = () => {
             color="blue"
             size="md"
             rightIcon={<ArrowNarrowRight />}
-            onClick={() => navigate("/badges/check-in")}
+            onClick={() => navigate("/badges/check-out")}
           >
             Start
           </Button>
