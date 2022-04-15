@@ -32,21 +32,32 @@ const Navbar = () => {
               <MenuLabel> Menu </MenuLabel>
               <MenuItem
                 onClick={() => {
+                  setOpen(false);
+                  navigate("/");
+                }}
+                icon={<Book size={20} />}
+              >
+                Home
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  setOpen(false);
+                  navigate("/badges/check-out");
+                }}
+                icon={<Badge size={20} />}
+              >
+                Badge Check-Out
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  setOpen(false);
                   navigate("/badges/check-in");
                 }}
                 icon={<Badge size={20} />}
               >
                 Badge Check-In
               </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  setOpen(false);
-                  navigate("/");
-                }}
-                icon={<Book size={20} />}
-              >
-                Splash Page
-              </MenuItem>
+
               <MenuItem
                 onClick={() => {
                   setOpen(false);

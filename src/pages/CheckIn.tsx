@@ -20,6 +20,9 @@ const CheckIn: FC = () => {
         lastName: {
           contains: lastName,
         },
+        badgeIsCheckedIn: {
+          equals: false,
+        },
       },
     },
   });

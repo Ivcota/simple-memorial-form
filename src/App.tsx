@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { NotificationsProvider } from "@mantine/notifications";
 import { createClient, Provider } from "urql";
 import { Toaster } from "react-hot-toast";
+import CheckOut from "./pages/CheckOut";
 
 const App = () => {
   const { isDark } = themeStore();
@@ -15,6 +16,9 @@ const App = () => {
 
   const graphqlClient = createClient({
     url: "https://attendant-app-backend.herokuapp.com/api/graphql",
+    fetchOptions: {
+      credentials: "include",
+    },
   });
 
   return (
@@ -32,7 +36,8 @@ const App = () => {
                   <Route path="/" element={<Home />} />
                   <Route path="/form" element={<FormPage />} />
                   <Route path="/thank-you" element={<ThankYou />} />
-                  <Route path="/badges/check-in" element={<CheckIn />} />
+                  <Route path="/badges/check-out" element={<CheckIn />} />
+                  <Route path="/badges/check-in" element={<CheckOut />} />
                 </Routes>
               </BrowserRouter>
             </NotificationsProvider>
